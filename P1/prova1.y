@@ -17,10 +17,10 @@ void yyerror(const char *msg);
 %token EOL 0
 
 %token <int_val> NUM 1
-%token <int_val> PLUS 2
-%token <int_val> MINUS 3
-%token <int_val> TIMES 4
-%token <int_val> DIV 5
+%token <int_val> PLUST 2
+%token <int_val> MINUST 3
+%token <int_val> TIMEST 4
+%token <int_val> DIVT 5
 %token <int_val> RPART 6
 %token <int_val> LPART 7
 %token <int_val> COMMENT 8
@@ -52,7 +52,6 @@ program
 stmt_list
         : assign_stmt
         | func_stmt
-        | COMMENT
 
 assign_stmt
           : ID ASSIGNT stmt
@@ -66,10 +65,23 @@ str
   : DQUOTET ID DQUOTET
   | DQUOTET SPACET DQUOTET
 
+str_list
+        : str COMMAT
+        | str
+
 func_stmt
-        : CONCATF
-        | LENGTHF
-        | PRINTF
+        : CONCATF concat_stmt
+        | LENGTHF length_stmt
+        | PRINTF print_stmt
+
+length_stmt
+          : LPART str RPART
+
+print_stmt
+          : LPART str RPART
+
+concat_stmt
+          : LPART str_list RPART
 
 expr
     : NUM PLUS expr
