@@ -9,11 +9,35 @@ int yylex();
 
 %option noyywrap
 
+DIGIT     [0-9]
+NUM       {DIGIT}+(\.{DIGIT}+)?
+ID        [a-zA-Z][a-zA-Z0-9_]{0,255}
+
 %%
 
-/* copiar E2 e fazer as extensões */
+[ \t]+ {}
+\s+         { return SPACET; }
 
+{NUM}       { return  NUM; }
 
-.            { return ERROR; }
+"\\"        { return COMMENT; }
+
+"concat"    { return CONCATF; }
+"length"    { return LENGTHF; }
+"print"     { return PRINTF; }
+"="         { return ASSIGNT; }
+
+"+"         { return PLUS; }
+"-"         { return MINUS; }
+"*"         { return TIMES; }
+"/"         { return DIV; }
+"("         { return LPART; }
+")"         { return RPART; }
+\"          { return DQUOTET; }
+
+","         { return COMMAT; }
+
+\n          { return EOL; }
+.           { return ERROR; }
 
 %%
