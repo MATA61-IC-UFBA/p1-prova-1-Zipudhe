@@ -79,6 +79,7 @@ length_stmt
 
 print_stmt
           : LPART str RPART
+          | LPART ID RPART
 
 concat_stmt
           : LPART str_list RPART
