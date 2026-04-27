@@ -76,6 +76,7 @@ func_stmt
 
 length_stmt
           : LPART str RPART
+          | LPART ID RPART
 
 print_stmt
           : LPART str RPART
