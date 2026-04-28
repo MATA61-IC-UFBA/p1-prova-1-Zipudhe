@@ -50,40 +50,57 @@ program
 ;
 
 stmt_list
-        : assign_stmt
-        | func_stmt
-
-assign_stmt
-          : ID ASSIGNT stmt
+        : stmt_list stmt
+        | stmt
+        ;
 
 stmt
-    : expr
+    : assign_stmt
     | func_stmt
-    | str
+    ;
+
+
+assign_stmt
+          : ID ASSIGNT expr
+          | ID ASSIGNT str
+          | ID ASSIGNT func_stmt
+          ;
+
 
 str
-  : DQUOTET ID DQUOTET
-  | DQUOTET SPACET DQUOTET
+  : STRING_LITERAL
+  ;
 
 str_list
-        : str COMMAT
+        : str_list COMMAT str_item
+        | str_item
+        | ID
+        ;
+
+str_item
+        : ID
         | str
+        ;
 
 func_stmt
         : CONCATF concat_stmt
         | LENGTHF length_stmt
         | PRINTF print_stmt
+        ;
 
 length_stmt
           : LPART str RPART
           | LPART ID RPART
+          ;
 
 print_stmt
           : LPART str RPART
           | LPART ID RPART
+          ;
 
 concat_stmt
           : LPART str_list RPART
+          ;
 
 expr
     : NUM PLUS expr
