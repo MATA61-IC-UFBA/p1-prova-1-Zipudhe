@@ -22,7 +22,7 @@ COMMENT  "//".*
 "length"    { return LENGTHF; }
 "print"     { return PRINTF; }
 "="         { return ASSIGNT; }
-\"          { return DQUOTET; }
+\"[^\"]*\"  { return STRING_LITERAL; }
 
 
 "print"       { return PRINTF; }
