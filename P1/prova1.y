@@ -16,22 +16,22 @@ void yyerror(const char *msg);
 
 %token EOL 0
 
-%token <int_val> NUM 1
-%token <int_val> PLUST 2
-%token <int_val> MINUST 3
-%token <int_val> TIMEST 4
-%token <int_val> DIVT 5
-%token <int_val> RPART 6
-%token <int_val> LPART 7
-%token <int_val> COMMENT 8
-%token <int_val> LENGTHF 9
-%token <int_val> PRINTF 10
-%token <int_val> ASSIGNT 11
-%token <int_val> DQUOTET 12
-%token <int_val> ID 13
-%token <int_val> CONCATF 14
-%token <int_val> SPACET 15
-%token <int_val> COMMAT 16
+%token <int_val> NUM
+%token <int_val> PLUST
+%token <int_val> MINUST
+%token <int_val> TIMEST
+%token <int_val> DIVT
+%token <int_val> RPART
+%token <int_val> LPART
+%token <int_val> COMMENT
+%token <int_val> LENGTHF
+%token <int_val> PRINTF
+%token <int_val> ASSIGNT
+%token <int_val> STRING_LITERAL
+%token <int_val> ID
+%token <int_val> CONCATF
+%token <int_val> SPACET
+%token <int_val> COMMAT
 %token <int_val> ERROR
 
 /*
