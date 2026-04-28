@@ -27,7 +27,7 @@ void yyerror(const char *msg);
 %token <int_val> LENGTHF
 %token <int_val> PRINTF
 %token <int_val> ASSIGNT
-%token <int_val> STRING_LITERAL
+%token <str_val> STRING_LITERAL
 %token <int_val> ID
 %token <int_val> CONCATF
 %token <int_val> SPACET
