@@ -37,8 +37,8 @@ void yyerror(const char *msg);
 /*
  * Garante assosciatividade à esquerda
  */
-%left PLUS MINUS /* Menor precedência */
-%left TIMES DIV  /* Maior que anterior precedência */
+%left PLUST MINUST /* Menor precedência */
+%left TIMEST DIVT  /* Maior que anterior precedência */
 %left LPART RPART /* Maior precedência */
 
 %start program
