@@ -103,10 +103,10 @@ concat_stmt
           ;
 
 expr
-    : NUM PLUS expr
-    | NUM MINUS expr
-    | NUM TIMES expr
-    | NUM DIV expr
+    : NUM PLUST expr
+    | NUM MINUST expr
+    | NUM TIMEST expr
+    | NUM DIVT expr
     | LPART expr RPART
     | NUM
     ;
