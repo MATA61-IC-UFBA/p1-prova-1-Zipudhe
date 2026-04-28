@@ -16,7 +16,7 @@ COMMENT  "//".*
 
 %%
 
-
+{COMMENT}    { /* Ignorar comentários */ }
 
 "concat"    { return CONCATF; }
 "length"    { return LENGTHF; }
@@ -39,9 +39,7 @@ COMMENT  "//".*
 ")"           { return RPART; }
 ","           { return COMMAT; }
 
-[ \t]+        { /* Ignorar espaços em branco e quebras de linha */ }
-\n            { return EOL; }
-{COMMENT}    { /* Ignorar comentários */ }
+[ \t\n\r]+        { /* Ignorar espaços em branco e quebras de linha */ }
 "^_"          { return ERROR; }
 .             { return ERROR; }
 
